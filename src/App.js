@@ -1,55 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { Container } from 'react-bootstrap'
 
-import { Grid } from '@material-ui/core';
+import Header from './components/header/Header'
+import Sidebar from './components/sidebar/Sidebar'
+import HomeScreen from './screens/homeScreen/HomeScreen'
+import LoginScreen from './screens/loginScreen/LoginScreen'
 
-import { SearchBar, VideoList, VideoDetail } from './components';
+import './_app.scss'
 
-import youtube from './api/youtube';
+const App = () => {
+   const [sidebar, toggleSidebar] = useState(false)
 
-class App extends React.Component {
-  state = {
-    videos: [],
-    selectedVideo: null,
-  }
+   const handleToggleSidebar = () => toggleSidebar(value => !value)
 
-handleSubmit = async (searchTerm) => {
-  const response = await youtube.get('search', {
-    params: {
-      part: 'snippet',
-      maxResults: 5,
-      key: 'ca75a1c16c254cca8aef2fd38a502665',
-      q: searchTerm,
-    }
-  });
-
-  this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] });
+   return (
+      // <>
+      //    <Header handleToggleSidebar={handleToggleSidebar} />
+      //    <div className="app__container">
+      //       <Sidebar
+      //          sidebar={sidebar}
+      //          handleToggleSidebar={handleToggleSidebar}
+      //       />
+      //       <Container fluid className="app__main ">
+      //          <HomeScreen />
+      //    </Container>
+      //    </div>
+      // </>
+      <LoginScreen />
+   )
 }
 
-onVideoSelect = (video) => {
-  this.setState({ selectedVideo: video });
-}
-
-render() {
-  const { selectedVideo, videos } = this.state;
-
-    return (
-      <Grid style={{ justifyContent: 'center' }} container spacing={10}>
-        <Grid item xs={11}>
-          <Grid container spacing={10}>
-            <Grid item xs={12}>
-              <SearchBar onFormSubmit={this.handleSubmit} />
-            </Grid>
-            <Grid item xs={8}>
-              <VideoDetail video={selectedVideo} />
-            </Grid>
-            <Grid item xs={4}>
-              <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    );
-  }
-}
-
-export default App;
+export default App
