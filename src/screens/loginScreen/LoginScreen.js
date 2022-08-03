@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { login } from '../../redux/actions/auth.action'
 
 import './loginScreen.scss'
@@ -14,13 +14,13 @@ const LoginScreen = () => {
       dispatch(login())
    }
 
-   const history = useHistory()
+   const navigate = useNavigate()
 
    useEffect(() => {
       if (accessToken) {
-         history.push('/')
+         navigate('/')
       }
-   }, [accessToken, history])
+   }, [accessToken, navigate])
 
    return (
       <div className='login'>

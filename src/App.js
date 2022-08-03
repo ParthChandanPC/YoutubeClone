@@ -4,7 +4,7 @@ import Header from './components/header/Header'
 import Sidebar from './components/sidebar/Sidebar'
 import HomeScreen from './screens/homeScreen/HomeScreen'
 import LoginScreen from './screens/loginScreen/LoginScreen'
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import './_app.scss'
 import { useSelector } from 'react-redux'
 
@@ -32,16 +32,16 @@ const Layout = ({ children }) => {
 const App = () => {
    const { accessToken, loading } = useSelector(state => state.auth)
 
-   const history = useHistory()
+   const navigate = useNavigate()
 
    useEffect(() => {
       if (!loading && !accessToken) {
-         history.push('/auth')
+         navigate('/auth')
       }
-   }, [accessToken, loading, history])
+   }, [accessToken, loading, navigate])
 
    return (
-      <Switch>
+      <Routes>
          <Route path='/' exact>
             <Layout>
                <HomeScreen />
@@ -59,9 +59,9 @@ const App = () => {
          </Route>
 
          <Route>
-            <Redirect to='/' />
+            <Navigate to='/' />
          </Route>
-      </Switch>
+      </Routes>
    )
 }
 
