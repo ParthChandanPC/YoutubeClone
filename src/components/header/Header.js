@@ -25,8 +25,13 @@ const Header = ({ handleToggleSidebar }) => {
             className='header__logo'
          />
 
-         <form>
-            <input type='text' placeholder='Search' />
+         <form onSubmit={handleSubmit}>
+            <input
+               type='text'
+               placeholder='Search'
+               value={input}
+               onChange={e => setInput(e.target.value)}
+            />
             <button type='submit'>
                <AiOutlineSearch size={22} />
             </button>
