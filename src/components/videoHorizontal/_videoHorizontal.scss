@@ -12,7 +12,10 @@
 
    &__thumbnail {
       width: 100%;
-
+      &-channel {
+         width: 50%;
+         border-radius: 50%;
+      }
       &-wrapper {
          width: 100%;
       }
@@ -36,6 +39,9 @@
       font-size: 1rem;
       letter-spacing: 0.3px;
 
+      @include line-clamp(2);
+   }
+   &__desc {
       @include line-clamp(2);
    }
 
@@ -72,11 +78,9 @@
             font-size: 0.9rem;
          }
       }
-
-      //   &__desc {
-      //      display: none;
-      //   }
-
+      &__desc {
+         display: none;
+      }
       &__title {
          font-size: 1rem;
          @include line-clamp(2);
