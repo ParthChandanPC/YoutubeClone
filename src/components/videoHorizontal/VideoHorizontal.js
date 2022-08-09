@@ -6,7 +6,7 @@ import moment from 'moment'
 import numeral from 'numeral'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Col, Row } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
    const {
       id,
@@ -58,12 +58,12 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
 
    const seconds = moment.duration(duration).asSeconds()
    const _duration = moment.utc(seconds * 1000).format('mm:ss')
-   const history = useHistory()
+   const navigate = useNavigate()
    const _channelId = resourceId?.channelId || channelId
    const handleClick = () => {
       isVideo
-         ? history.push(`/watch/${id.videoId}`)
-         : history.push(`/channel/${_channelId}`)
+         ? navigate(`/watch/${id.videoId}`)
+         : navigate(`/channel/${_channelId}`)
    }
    const thumbnail = !isVideo && 'videoHorizontal__thumbnail-channel'
    return (

@@ -3,13 +3,13 @@ import './_header.scss'
 import { FaBars } from 'react-icons/fa'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MdNotifications, MdApps } from 'react-icons/md'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Header = ({ handleToggleSidebar }) => {
    const [input, setInput] = useState('')
-   const history = useHistory()
+   const navigate = useNavigate()
    const handleSubmit = e => {
       e.preventDefault()
-      history.push(`/search/${input}`)
+      navigate(`/search/${input}`)
    }
    return (
       <div className='header '>
