@@ -1,4 +1,4 @@
-import { legacy_createStore as createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { authReducer } from './reducers/auth.reducer'
@@ -23,11 +23,9 @@ const rootReducer = combineReducers({
    subscriptionsChannel: subscriptionsChannelReducer,
    channelVideos: channelVideosReducer,
 })
-
 const store = createStore(
    rootReducer,
    {},
    composeWithDevTools(applyMiddleware(thunk))
 )
-
 export default store
