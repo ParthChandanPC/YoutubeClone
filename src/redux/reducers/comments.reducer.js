@@ -12,7 +12,6 @@ export const getCommentsOfVideoById = id => async dispatch => {
       dispatch({
          type: COMMENT_LIST_REQUEST,
       })
-
       const { data } = await request('/commentThreads', {
          params: {
             part: 'snippet',
@@ -44,7 +43,6 @@ export const addComment = (id, text) => async (dispatch, getState) => {
             },
          },
       }
-
       await request.post('/commentThreads', obj, {
          params: {
             part: 'snippet',
@@ -56,7 +54,6 @@ export const addComment = (id, text) => async (dispatch, getState) => {
       dispatch({
          type: CREATE_COMMENT_SUCCESS,
       })
-
       setTimeout(() => dispatch(getCommentsOfVideoById(id)), 3000)
    } catch (error) {
       console.log(error.response.data)
