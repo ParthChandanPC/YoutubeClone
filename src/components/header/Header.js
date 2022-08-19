@@ -13,7 +13,7 @@ const Header = ({ handleToggleSidebar }) => {
       e.preventDefault()
       navigate(`/search/${input}`)
    }
-   const user = useSelector(state => state.auth?.user)
+   const { photoURL } = useSelector(state => state.auth?.user)
    return (
       <div className='header '>
          <FaBars
@@ -42,7 +42,7 @@ const Header = ({ handleToggleSidebar }) => {
          <div className='header__icons'>
             <MdNotifications size={28} />
             <MdApps size={28} />
-            <img src={user?.photoURL} alt='avatar' />
+            <img src={photoURL} alt='avatar' />
          </div>
       </div>
    )

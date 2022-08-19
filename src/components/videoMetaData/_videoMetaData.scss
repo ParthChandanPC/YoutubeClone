@@ -45,3 +45,10 @@
       }
    }
 }
+@media (max-width: $breakpoint-small) {
+   .videoMetaData {
+      h5 {
+         font-size: 1.1rem;
+      }
+   }
+}

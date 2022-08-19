@@ -8,6 +8,7 @@
    &__left {
       position: relative;
       text-align: center;
+      padding-left: 0 !important;
    }
 
    &__thumbnail {
@@ -36,13 +37,14 @@
    }
 
    &__title {
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 0.3px;
 
       @include line-clamp(2);
    }
    &__desc {
       @include line-clamp(2);
+      font-size: 0.9rem;
    }
 
    &__channel {
@@ -55,7 +57,7 @@
          cursor: pointer;
       }
       p {
-         font-size: 0.9rem;
+         font-size: 0.8rem;
          @include line-clamp(1);
       }
    }
@@ -82,8 +84,8 @@
          display: none;
       }
       &__title {
-         font-size: 1rem;
-         @include line-clamp(2);
+         font-size: 0.9rem;
+         @include line-clamp(1);
       }
    }
 }
