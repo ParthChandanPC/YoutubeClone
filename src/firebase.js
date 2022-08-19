@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app'
-import 'firebase/auth'
+import 'firebase/compat/auth';
+
 const firebaseConfig = {
     apiKey: "AIzaSyBkcDnhJ6uJyJW7LNlFKI7priMf3eujW3U",
     authDomain: "ytclonepc.firebaseapp.com",
@@ -10,4 +11,4 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig)
-export default firebase.auth()
+export default firebase.auth

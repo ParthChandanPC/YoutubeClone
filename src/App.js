@@ -45,39 +45,39 @@ const App = () => {
 
    return (
       <Routes>
-         <Route path='/' exact>
-            <Layout>
+         <Route path='/' exact
+            element={<Layout>
                <HomeScreen />
-            </Layout>
+            </Layout>}
+         >  
          </Route>
-
-         <Route path='/auth'>
-            <LoginScreen />
+         <Route path='/auth'
+            element={<LoginScreen />}
+         >  
          </Route>
-
-         <Route path='/search/:query'>
-            <Layout>
+         <Route path='/search/:query'
+            element={<Layout>
                <SearchScreen />
-            </Layout>
+            </Layout>}
+         >   
          </Route>
-         <Route path='/watch/:id'>
-            <Layout>
+          <Route path='/watch/:id'
+            element={<Layout>
                <WatchScreen />
-            </Layout>
+            </Layout>}>
          </Route>
-         <Route path='/feed/subscriptions'>
-            <Layout>
+         <Route path='/feed/subscriptions' 
+            element={<Layout>
                <SubscriptionsScreen />
-            </Layout>
+            </Layout>}> 
          </Route>
-         <Route path='/channel/:channelId'>
-            <Layout>
+         <Route path='/channel/:channelId' 
+            element={<Layout>
                <ChannelScreen />
-            </Layout>
+            </Layout>}> 
          </Route>
-         <Route>
-            <Navigate to='/' />
-         </Route>
+         <Route element={<Navigate to='/' />}>
+         </Route> 
       </Routes>
    )
 }
